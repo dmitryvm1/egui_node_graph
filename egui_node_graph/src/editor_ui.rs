@@ -803,6 +803,8 @@ where
             let titlebar_rect =
                 Rect::from_min_size(outer_rect.min, vec2(outer_rect.width(), titlebar_height));
             let titlebar = Shape::Rect(RectShape {
+                fill_texture_id: TextureId::default(),
+                uv: Rect::ZERO,
                 rect: titlebar_rect,
                 rounding,
                 fill: self.graph[self.node_id]
@@ -817,6 +819,8 @@ where
                 vec2(outer_rect.width(), outer_rect.height() - titlebar_height),
             );
             let body = Shape::Rect(RectShape {
+                fill_texture_id: TextureId::default(),
+                uv: Rect::ZERO,
                 rect: body_rect,
                 rounding: Rounding::none(),
                 fill: background_color,
@@ -828,6 +832,8 @@ where
                 vec2(outer_rect.width(), titlebar_height),
             );
             let bottom_body = Shape::Rect(RectShape {
+                fill_texture_id: TextureId::default(),
+                uv: Rect::ZERO,
                 rect: bottom_body_rect,
                 rounding,
                 fill: background_color,
@@ -837,6 +843,8 @@ where
             let node_rect = titlebar_rect.union(body_rect).union(bottom_body_rect);
             let outline = if self.selected {
                 Shape::Rect(RectShape {
+                    fill_texture_id: TextureId::default(),
+                    uv: Rect::ZERO,
                     rect: node_rect.expand(1.0),
                     rounding,
                     fill: Color32::WHITE.lighten(0.8),
